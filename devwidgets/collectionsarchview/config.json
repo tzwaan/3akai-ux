@@ -1,0 +1,14 @@
+{
+  "description":"Collections - Floorplan layout widget",
+  "userpages": true,
+  "grouppages": true,
+  "hasSettings":true,
+  "showinsakaigoodies":true,
+  "id":"collectionsarchview",
+  "img":"/devwidgets/collectionsarchview/images/portfolio.png",
+  "i18n": {
+      "default": "/devwidgets/collectionsarchview/bundles/default.json"
+  },
+  "name":"Collections - Floorplan",
+  "url":"/devwidgets/collectionsarchview/collectionsarchview.html"
+}

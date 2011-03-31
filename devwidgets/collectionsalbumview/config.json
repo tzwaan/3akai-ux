@@ -1,0 +1,14 @@
+{
+  "description":"Collections - Album layout widget",
+  "userpages": true,
+  "grouppages": true,
+  "hasSettings":true,
+  "showinsakaigoodies":true,
+  "id":"collectionsalbumview",
+  "img":"/devwidgets/collectionsalbumview/images/portfolio.png",
+  "i18n": {
+      "default": "/devwidgets/collectionsalbumview/bundles/default.json"
+  },
+  "name":"Collections - Album",
+  "url":"/devwidgets/collectionsalbumview/collectionsalbumview.html"
+}
