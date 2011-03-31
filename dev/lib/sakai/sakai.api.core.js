@@ -65,5 +65,5 @@ define(
         widgets : sakai_widget_config
     };
     return sakai;
-    
+
 });
