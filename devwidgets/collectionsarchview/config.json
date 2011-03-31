@@ -7,8 +7,10 @@
   "id":"collectionsarchview",
   "img":"/devwidgets/collectionsarchview/images/portfolio.png",
   "i18n": {
-      "default": "/devwidgets/collectionsarchview/bundles/default.json"
+      "default": "/devwidgets/collectionsarchview/bundles/default.properties"
   },
   "name":"Collections - Floorplan",
-  "url":"/devwidgets/collectionsarchview/collectionsarchview.html"
+  "url":"/devwidgets/collectionsarchview/collectionsarchview.html",
+  "type":"sakai",
+  "enabled":true
 }

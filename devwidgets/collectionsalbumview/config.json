@@ -7,8 +7,10 @@
   "id":"collectionsalbumview",
   "img":"/devwidgets/collectionsalbumview/images/portfolio.png",
   "i18n": {
-      "default": "/devwidgets/collectionsalbumview/bundles/default.json"
+      "default": "/devwidgets/collectionsalbumview/bundles/default.properties"
   },
   "name":"Collections - Album",
-  "url":"/devwidgets/collectionsalbumview/collectionsalbumview.html"
+  "url":"/devwidgets/collectionsalbumview/collectionsalbumview.html",
+  "type":"sakai",
+  "enabled":true
 }

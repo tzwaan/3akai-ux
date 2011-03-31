@@ -14,7 +14,7 @@
         </a>
       </span>
       <a href="javascript:;" id="configure_widget">
-        <img src="/devwidgets/collections/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_COLLECTIONS_WIDGET__" title="__MSG__CONFIGURE_THIS_COLLECTIONS_WIDGET__"/>
+        <img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_COLLECTIONS_WIDGET__" title="__MSG__CONFIGURE_THIS_COLLECTIONS_WIDGET__"/>
       </a>
     </div>
   --></div>
@@ -58,7 +58,7 @@
           <div class="albumTitleContainer">
           <h1>Chapter:</h1>
           <h1 class="isEditable albumTitle">${album.title}</h1></div>
-          <div class="configureAlbum configure" style="display:none"><button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_ALBUM__</span></button><a href="javascript:;"><img src="/devwidgets/collections/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_ALBUM__" title="__MSG__CONFIGURE_THIS_ALBUM__"/></a></div>
+          <div class="configureAlbum configure" style="display:none"><button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_ALBUM__</span></button><a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_ALBUM__" title="__MSG__CONFIGURE_THIS_ALBUM__"/></a></div>
         </div>
         <div class="albumImage isEditable">
             <img src="${album.image}"/>
@@ -67,7 +67,7 @@
         <div class="albumDesc isEditable" id="${album.id}_description">${album.description}</div>
       </div>
       <div class="albumCategories">
-        <div class="categoryHeader"><h2>Categories</h2><span style="display:none"><a href="javascript:;"><img src="/devwidgets/collections/images/add_icon.png" alt="__MSG__ADD_NEW_CATEGORY__" title="__MSG__ADD_NEW_CATEGORY__"/></a></span></div>
+        <div class="categoryHeader"><h2>Categories</h2><span style="display:none"><a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/add_icon.png" alt="__MSG__ADD_NEW_CATEGORY__" title="__MSG__ADD_NEW_CATEGORY__"/></a></span></div>
         {for category in album.categories}
         <div class="categoryPreview" id="category_${category.id}">
           <div class="categoryCover">
@@ -89,7 +89,7 @@
           <div class="categoryTitleContainer"><h2 class="isEditable categoryTitle categoryData">${category.name}</h2></div>
           <div class="configureCategory configure" style="display:none">
             <button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_CATEGORY__</span></button>
-            <a href="javascript:;"><img src="/devwidgets/collections/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_CATEGORY__" title="__MSG__CONFIGURE_THIS_CATEGORY__"/></a>
+            <a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_CATEGORY__" title="__MSG__CONFIGURE_THIS_CATEGORY__"/></a>
           </div>
         </div>
         <div class="scroll-pane">
@@ -124,7 +124,7 @@
         <div class="itemTitleContainer"><h1 class="itemTitle isEditable itemData">${item.title}</h1></div>
         <div class="configureItem configure" style="display:none">
             <button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">Delete Item</span></button>
-            <a href="javascript:;"><img src="/devwidgets/collections/images/config_icon.png" alt="Configure this item" title="Configure this item"/></a>
+            <a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="Configure this item" title="Configure this item"/></a>
         </div>
         </div>
         <div class="itemImage isEditable itemData">
