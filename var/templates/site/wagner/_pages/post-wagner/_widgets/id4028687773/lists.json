@@ -1,0 +1,5 @@
+{
+    "title":"Graduation Date",
+    "jcr:primaryType":"sling:Folder",
+    "editParents": false
+}

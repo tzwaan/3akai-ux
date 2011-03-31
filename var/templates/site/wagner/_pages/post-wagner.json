@@ -1,0 +1,7 @@
+{
+	"pageTitle": "Post-Wagner",
+	"sling:resourceType": "sakai/page",
+	"pageType": "dashboard", 
+	"pagePosition": 300000,
+	"jcr:mixinTypes": "sakai:propertiesmix"
+}

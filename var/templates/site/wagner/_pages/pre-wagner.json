@@ -1,0 +1,7 @@
+{
+	"pageTitle": "Pre-Wagner",
+	"sling:resourceType": "sakai/page",
+	"pageType": "dashboard", 
+	"pagePosition": 100000,
+	"jcr:mixinTypes": "sakai:propertiesmix"
+}

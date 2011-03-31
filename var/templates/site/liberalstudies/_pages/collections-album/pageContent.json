@@ -1,0 +1,6 @@
+{
+	"jcr:primaryType": "nt:folder",
+	"jcr:mixinTypes" : ["sakai:propertiesmix"],
+	"sling:resourceType": "sakai/pagecontent",
+	"sakai:pagecontent": "<p><img src='/devwidgets/collections/images/portfolio.png' mce_src='devwidgets/collections/images/portfolio.png' id='widget_collectionsalbumview_id303208806' class='widget_inline' style='display: block; padding: 10px; margin: 4px; float:left' mce_style='display:block; padding: 10px; margin: 4px; float:left' border='1'><br mce_bogus='1'></p><p><img border='1' mce_style='display:block; padding: 10px; margin: 4px;' style='display: block; padding: 10px; margin: 4px;' class='widget_inline' id='widget_discussion_id306315278' mce_src='devwidgets/discussion/images/discussion.png' src='/devwidgets/discussion/images/discussion.png' _moz_resizing='true'></p>"
+}

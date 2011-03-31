@@ -1,0 +1,8 @@
+{
+	"sling:resourceType": "sakai/page",
+	"pageTitle": "About This Portfolio",
+	"pageType": "profile",
+	"deletable": false,
+	"pagePosition": 100000,
+	"jcr:mixinTypes": "sakai:propertiesmix"
+}

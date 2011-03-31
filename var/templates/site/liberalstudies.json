@@ -1,0 +1,13 @@
+{
+    "sakai:is-site-template": "true",
+    "sakai:authorizables": ["g-defaultgroup-collaborators", "g-defaultgroup-viewers"],
+    "description": "This is the Liberal Studies group template",
+    "id": "defaultgroup",
+    "sakai:site-template": "/templates/liberalstudies",
+    "sakai:skin": "/dev/skins/original/original.html",
+    "sling:resourceType": "sakai/template",
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:mixinTypes": ["rep:AccessControllable"],
+    "status": "online",
+    "name": "liberalstudies"
+}

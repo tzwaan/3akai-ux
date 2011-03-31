@@ -1,0 +1,6 @@
+{
+	"uid": "id4028687772",
+    "visible": "block",
+    "name": "lists",
+	"jcr:mixinTypes": "sakai:propertiesmix"
+}

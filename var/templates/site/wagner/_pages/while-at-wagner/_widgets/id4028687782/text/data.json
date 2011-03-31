@@ -1,0 +1,6 @@
+{
+    "title":"Current Job/Internship",
+    "text":"",
+    "jcr:primaryType":"sling:Folder",
+    "titleEditable": false
+}

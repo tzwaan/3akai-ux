@@ -1,0 +1,6 @@
+{
+	"jcr:primaryType": "nt:folder",
+	"jcr:mixinTypes" : ["sakai:propertiesmix"],
+	"sling:resourceType": "sakai/pagecontent",
+	"sakai:pagecontent": "<p>This Portfolio is an archive that all Global Liberal Studies students keep throughout their four years in the program, adding to it and organizing within it material from their coursework, extracurricular, and study abroad experiences that will aid in the construction of their Senior Thesis. Each student's current professors and advisors are members of this portfolio. Students can use the two Collections pages provided and can create their own as well.</p><p><img id='widget_groupbasicinfo_id4078081' class='widget_inline' style='display:block; padding: 10px; margin: 4px' border='1' src='/devwidgets/groupbasicinfo/images/icon.png' /></p>"
+}

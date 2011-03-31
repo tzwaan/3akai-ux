@@ -1,0 +1,9 @@
+{
+	"pageTitle": "Group Members",
+	"sling:resourceType": "sakai/page",
+	"pageType": "dashboard", 
+	"pagePosition": 200000,
+	"deletable": false,
+	"editable": false,
+	"jcr:mixinTypes": "sakai:propertiesmix"
+}
