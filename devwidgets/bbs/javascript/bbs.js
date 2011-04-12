@@ -224,6 +224,13 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.cooki
             }
         };
 
+        /**
+         * Callback function to sort replies based on created timestamp
+         */
+        var sortReplies = function(a, b){
+            return a.post._created - b.post._created;
+        };
+
         var renderPosts = function(arrPosts){
             // Loop fetched posts and do markup
             for (var i = 0, j = arrPosts.length; i < j; i++) {
@@ -254,7 +261,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.cooki
                         arrPosts[i].replies[ii].post["sakai:body"] = arrPosts[i].replies[ii].post["sakai:body"].split(["[/quote]"])[1];
                     }
                 }
-                arrPosts[i].replies.reverse();
+                // Sort replies
+                arrPosts[i].replies.sort(sortReplies);
             }
 
             // Render formatted posts
@@ -462,7 +470,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.cooki
                 'sakai:initialpost': true,
                 'sakai:writeto': store,
                 'sakai:marker': tuid,
-                'sakai:messagebox': "outbox",
+                'sakai:messagebox': "pending",
                 'sakai:sendstate': "pending",
                 '_charset_': "utf-8"
             };
@@ -503,7 +511,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.cooki
                 "sakai:type": "discussion",
                 "sling:resourceType": "sakai/message",
                 "sakai:replyon": id,
-                "sakai:messagebox": "outbox",
+                "sakai:messagebox": "pending",
                 "sakai:sendstate": "pending",
                 "sakai:to": "discussion:w-" + store,
                 "sakai:deleted": false,
