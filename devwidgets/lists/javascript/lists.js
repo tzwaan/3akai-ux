@@ -114,6 +114,15 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                         widgetData.selections.push(obj);
                     });
                 }
+                widgetData.selectionsSearchable = "";
+                $.each(widgetData.selections, function(i, elt) {
+                    if (elt.title) {
+                        widgetData.selectionsSearchable += elt.title;
+                        if (i !== widgetData.selections.length-1) {
+                            widgetData.selectionsSearchable += ", ";
+                        }
+                    }
+                });
                 return true;
             } else {
                 alert("Please make a selection before saving");

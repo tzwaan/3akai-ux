@@ -10,5 +10,6 @@
     "showinsakaigoodies":false,
     "deletable": false,
     "url":"/devwidgets/lists/lists.html",
-    "img":"/devwidgets/lists/images/lists.png"
+    "img":"/devwidgets/lists/images/lists.png",
+    "indexFields": ["selectionsSearchable"]
 }
