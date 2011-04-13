@@ -123,7 +123,7 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
 
         var renderInitialLists = function() {
             setSelected();
-            $listsOfLists.html(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":thisList, "hasLists": true, "parentLabel": "", "editParents": widgetData.editParents === false ? false : true}));
+            $listsOfLists.html(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":thisList, "hasLists": true, "parentLabel": "", "editParents": widgetData.editParents === "false" ? false : true}));
             $(".list_select:not(.triggered):has(option:selected)", $rootel).addClass("triggered").trigger("change");
         };
 
@@ -200,10 +200,10 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
             if (list) {
                 if ($(".list_parent_" + id, $rootel).length) {
                     // replace the current list display
-                    $(".list_parent_" + id, $rootel).replaceWith(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === false ? false : true}));
+                    $(".list_parent_" + id, $rootel).replaceWith(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === "false" ? false : true}));
                 } else {
                     // append to the parent div for easy hiding
-                    $parentDiv.append(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === false ? false : true}));
+                    $parentDiv.append(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === "false" ? false : true}));
                     $(".list_select:not(.triggered):has(option:selected)", $rootel).addClass("triggered").trigger("change"); // trigger change if there are more
                     if ($(".list_select.list_final", $rootel).length) { // if the final list is available, select the selections
                         $(widgetData.selections).each(function(i,val) {
