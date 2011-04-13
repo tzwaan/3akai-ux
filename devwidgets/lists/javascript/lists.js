@@ -77,7 +77,7 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                 }
             }
             if (widgetData.selections) {
-                sakai.api.Util.TemplateRenderer($listsDisplayTemplate, {"data": widgetData.selections}, $listsMain);
+                sakai.api.Util.TemplateRenderer($listsDisplayTemplate, {"data": widgetData.selections, "newtab": widgetData.newtab}, $listsMain);
             }
         };
 
@@ -90,6 +90,10 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                 $(".list_final", $rootel).parents(".list_container", $rootel).each(function(i,val) {
                     if (i === 0) {
                         widgetData.title = unescape($(val).attr("id"));
+                        var list = getList(thisList, unescape($(val).attr("id")));
+                        if (list.newtab) {
+                            widgetData.newtab = list.newtab;
+                        }
                     }
                     widgetData.parents[i] = unescape($(val).attr("id"));
                 });
