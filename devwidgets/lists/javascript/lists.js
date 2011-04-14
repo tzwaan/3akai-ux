@@ -77,7 +77,7 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                 }
             }
             if (widgetData.selections) {
-                sakai.api.Util.TemplateRenderer($listsDisplayTemplate, {"data": widgetData.selections}, $listsMain);
+                sakai.api.Util.TemplateRenderer($listsDisplayTemplate, {"data": widgetData.selections, "newtab": widgetData.newtab}, $listsMain);
             }
         };
 
@@ -90,6 +90,10 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                 $(".list_final", $rootel).parents(".list_container", $rootel).each(function(i,val) {
                     if (i === 0) {
                         widgetData.title = unescape($(val).attr("id"));
+                        var list = getList(thisList, unescape($(val).attr("id")));
+                        if (list.newtab) {
+                            widgetData.newtab = list.newtab;
+                        }
                     }
                     widgetData.parents[i] = unescape($(val).attr("id"));
                 });
@@ -110,6 +114,15 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
                         widgetData.selections.push(obj);
                     });
                 }
+                widgetData.selectionsSearchable = "";
+                $.each(widgetData.selections, function(i, elt) {
+                    if (elt.title) {
+                        widgetData.selectionsSearchable += elt.title;
+                        if (i !== widgetData.selections.length-1) {
+                            widgetData.selectionsSearchable += ", ";
+                        }
+                    }
+                });
                 return true;
             } else {
                 alert("Please make a selection before saving");
@@ -123,7 +136,7 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
 
         var renderInitialLists = function() {
             setSelected();
-            $listsOfLists.html(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":thisList, "hasLists": true, "parentLabel": "", "editParents": widgetData.editParents === false ? false : true}));
+            $listsOfLists.html(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":thisList, "hasLists": true, "parentLabel": "", "editParents": widgetData.editParents === "false" ? false : true}));
             $(".list_select:not(.triggered):has(option:selected)", $rootel).addClass("triggered").trigger("change");
         };
 
@@ -200,10 +213,10 @@ require(["jquery", "sakai/sakai.api.core", "/devwidgets/lists/listsconfig.js"], 
             if (list) {
                 if ($(".list_parent_" + id, $rootel).length) {
                     // replace the current list display
-                    $(".list_parent_" + id, $rootel).replaceWith(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === false ? false : true}));
+                    $(".list_parent_" + id, $rootel).replaceWith(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === "false" ? false : true}));
                 } else {
                     // append to the parent div for easy hiding
-                    $parentDiv.append(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === false ? false : true}));
+                    $parentDiv.append(sakai.api.Util.TemplateRenderer($listsTemplate, {"data":list, "parentLabel": unescape(id), "hasLists": list.list[0].list ? true : false, "editParents": widgetData.editParents === "false" ? false : true}));
                     $(".list_select:not(.triggered):has(option:selected)", $rootel).addClass("triggered").trigger("change"); // trigger change if there are more
                     if ($(".list_select.list_final", $rootel).length) { // if the final list is available, select the selections
                         $(widgetData.selections).each(function(i,val) {

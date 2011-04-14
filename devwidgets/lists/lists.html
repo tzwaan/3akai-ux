@@ -60,7 +60,7 @@
     <div id="lists_list_display_template"><!--
         <ul>
         {for item in data}
-            <li>{if item.loc}<a href="${item.loc}" class="s3d-action">{/if}${item.title}{if item.loc}</a>{/if}</li>
+            <li>{if item.loc}<a href="${item.loc}" class="s3d-action"{if newtab} target="_blank"{/if}>{/if}${item.title}{if item.loc}</a>{/if}</li>
         {/for}
         </ul>
     -->

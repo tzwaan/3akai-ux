@@ -1728,9 +1728,12 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
 
         $("#cancel_add_content", $rootel).die("click");
         $("#cancel_add_content", $rootel).live("click", function(e) {
-            hideEverything();
-            currentContentItemData = {};
-            showRoom();
+            if ($.bbq.getState("item") === "0") {
+                hideEverything();
+                $.bbq.removeState("mode", "item");
+            } else {
+                $.bbq.removeState("mode");
+            }
             return false;
         });
 
