@@ -143,6 +143,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
         };
 
         var saveWidgetData = function() {
+            delete collectionData.sakai;
             widgetData.collectionData = collectionData;
             delete settings.sakai;
             widgetData.settings = settings;

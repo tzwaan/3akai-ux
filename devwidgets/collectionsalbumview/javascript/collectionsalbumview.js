@@ -144,9 +144,11 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
         };
 
         var saveWidgetData = function() {
+            delete collectionData.sakai;
             widgetData.collectionData = collectionData;
             delete settings.sakai;
             widgetData.settings = settings;
+            debug.log(widgetData);
             sakai.api.Widgets.saveWidgetData(tuid, widgetData, function(success, data) {
                 if (success) {
                     if (showSettings) {
@@ -715,7 +717,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
                             // load/cache the image
                             if (!setFirstImage) {
                                 setFirstImage = true;
-                                $("#category_" + cat.id + " div img", $rootel).attr("src", itemURL);
+                                $("#category_" + cat.id + " div img", $rootel).attr("src", itemURL).show();
                                 categoryImages[cat.id] = {};
                                 categoryImages[cat.id].currentImage = 0;
                                 categoryImages[cat.id].images = [];
@@ -724,7 +726,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
                         }
                     }
                     if (!categoryImages[cat.id]) {
-                        $("#category_" + cat.id + " div img", $rootel).attr("src", "/dev/_images/mimetypes/empty.png");
+                        $("#category_" + cat.id + " div img", $rootel).attr("src", "/dev/_images/mimetypes/empty.png").show();
                     }
                 }
             }
@@ -1018,7 +1020,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
 
         var addAlbumImage = function(url) {
             currentCollectionData.image = url;
-            $(".albumImage img", $rootel).attr("src", url);
+            $(".albumImage img", $rootel).attr("src", url).show();
             $(".clickToEditText", $rootel).text('');
             saveCollectionData();
         };
@@ -1027,11 +1029,11 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/jquery/plugins/jquery.jedit
             currentItemData.url = url;
             currentItemData.mimeType = mimeType;
             if (mimeType.split("/")[0] == "image") {
-                $(".itemImage img", $rootel).attr("src", url);
+                $(".itemImage img", $rootel).attr("src", url).show();
             } else if (sakai.config.MimeTypes[mimeType]) {
-                $(".itemImage img", $rootel).attr("src", sakai.config.MimeTypes[mimeType].URL);
+                $(".itemImage img", $rootel).attr("src", sakai.config.MimeTypes[mimeType].URL).show();
             } else {
-                $(".itemImage img", $rootel).attr("src", sakai.config.MimeTypes["other"].URL);
+                $(".itemImage img", $rootel).attr("src", sakai.config.MimeTypes["other"].URL).show();
             }
             $(".clickToEditText", $rootel).text('');
             if (mimeType === "x-sakai/link") {

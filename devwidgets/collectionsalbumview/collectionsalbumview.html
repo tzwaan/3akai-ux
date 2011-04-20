@@ -61,7 +61,7 @@
           <div class="configureAlbum configure" style="display:none"><button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_ALBUM__</span></button><a href="javascript:;"><img src="/devwidgets/collectionsalbumview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_ALBUM__" title="__MSG__CONFIGURE_THIS_ALBUM__"/></a></div>
         </div>
         <div class="albumImage isEditable">
-            <img src="${album.image}"/>
+            <img src="${album.image}"{if !album.image} style="display:none"{/if}/>
             <span class="clickToEditText"></span>
         </div>
         <div class="albumDesc isEditable" id="${album.id}_description">${album.description}</div>
@@ -138,7 +138,7 @@
                 <img src="${sakai.config.MimeTypes["other"].URL}" alt="${sakai.config.MimeTypes["other"].description}" />
               {/if}
           {else}
-            <img src=""/>
+            <img src="" style="display:none;"/>
             <span class="clickToEditText"></span>
           {/if}
           {if item.url}</a>{/if}
