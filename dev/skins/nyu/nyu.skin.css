@@ -30,6 +30,10 @@ a:active {
 color: #fff !important;
 }
 
+.explore_nav .explore li a.navigation_grey_link {
+    color:#888!important;
+}
+
 /* Buttons */
 .s3d-button {   
     background: url("images/button-sprite-5state_nyu.png") no-repeat scroll right -40px transparent;

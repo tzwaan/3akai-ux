@@ -813,7 +813,7 @@ define(function() {
                 "label" : "PEOPLE"
             },
             {
-                "url" : "/directory",
+                "url" : "javascript:;",
                 "id" : "navigation_directory_link",
                 "label" : "DIRECTORY"
             }
