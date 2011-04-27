@@ -297,7 +297,6 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/content_profile.js"]
         var updateCopyright = function(){
             var copyright = $("#contentmetadata_copyright_copyright").val();
             sakai_global.content_profile.content_data.data["sakai:copyright"] = copyright;
-            renderCopyright(false);
             $.ajax({
                 url: "/p/" + sakai_global.content_profile.content_data.data["jcr:name"] + ".html",
                 type: "POST",
@@ -309,6 +308,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/content_profile.js"]
                     createActivity("__MSG__UPDATED_COPYRIGHT__");
                 }
             });
+            renderCopyright(false);
         };
 
         /**
