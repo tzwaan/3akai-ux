@@ -119,7 +119,7 @@ define(["jquery", "/dev/configuration/config.js", "sakai/sakai.api.server"], fun
                         // set default permissions for this group
                         sakaiGroupsAPI.setPermissions(groupid,
                             sakai_conf.Permissions.Groups.joinable.manager_add,
-                            sakai_conf.Permissions.Groups.visible["public"],
+                            sakai_conf.Permissions.Groups.visible["members"],
                             function (success, errorMessage) {
                                 if(success) {
                                     if ($.isFunction(callback)) {
