@@ -8,77 +8,10 @@ html, .requireUser {
 	height:80px;
 }
 /* Buttons */
-.s3d-button {
-  background: url("images/button-sprite-5state_nyu.png") no-repeat scroll right -40px transparent;
-}
-.s3d-button:hover, .s3d-button-hover {
-  background-position: right -120px;
-}
-
-.s3d-button::-moz-focus-inner {
-  border: none; /* overrides extra padding in Firefox */
-}
 .s3d-button .s3d-button-inner {                                                                     
-  background: url("images/button-sprite-5state_nyu.png") no-repeat scroll left top transparent;
+  background: url("images/nyu_dashboard_sprite.png") no-repeat scroll -10px -1237px transparent; 
 } 
 
-.s3d-button:hover .s3d-button-inner, .s3d-button-hover .s3d-button-inner {
-  background-position: left -80px;
-  color: #FFF;
-}
-
-html > body .s3d-button .s3d-button-inner {
-  white-space: normal; /* only do the white-space fix on IE6 */
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    /* Safari and Google Chrome only - fix margins */
-  .s3d-button .s3d-button-inner {
-      margin-top: -1px;
-  }
-}
-
-.s3d-button-primary {
-  background-position: right -200px;
-}
-
-.s3d-button-primary .s3d-button-inner {
-  background-position: left -160px;
-}
-
-.s3d-button[disabled], .s3d-disabled {
-  background-position: right -280px;
-  cursor: default;
-}
-
-.s3d-button:hover[disabled], .s3d-disabled.s3d-button-hover {
-  background-position: right -280px;
-  cursor: default;
-}
-
-.s3d-button[disabled] .s3d-button-inner, .s3d-disabled .s3d-button-inner {
-  background-position: left -240px;
-}
-
-.s3d-button:hover[disabled] .s3d-button-inner, .s3d-disabled.s3d-button-hover .s3d-button-inner  {
-  background-position: left -240px;
-}
-
-.s3d-button-icon-right, .s3d-button-icon-left {
-  display: block;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-color: transparent;
-}
-
-.s3d-button-icon-right {
-  background-position: right center;
-  padding-right: 18px;
-}
-
-.s3d-button-icon-left {
-  background-position: left center;
-  padding-left: 18px;
-}
 
 /* Page Links */
 a.s3d-action, .s3d-actions a, 
@@ -89,7 +22,7 @@ a.directory_level_three_link
 {
 }
 .people .find_more_people a {
-  background: url("images/arrow_right_sm2_nyu_purple.png") no-repeat scroll right center;	
+  background: url("images/nyu_dashboard_sprite.png") no-repeat scroll -490px -398px;
 }
 
 .myprofile_widget .profile .myprofile_name {
