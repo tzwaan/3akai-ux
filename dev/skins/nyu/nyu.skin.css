@@ -177,4 +177,12 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 
 #login-failed {
   margin-top: 0px;
+}    
+
+.login-box-content{
+  background-color:none;
+  padding:0;
+  width:800px;
 }
+.login-box .login-box-top{background:url(/dev/images/dashboard_sprite.png) no-repeat scroll -10px -1473px transparent;height:4px;}
+.login-box .login-box-bottom{background:url(/dev/images/dashboard_sprite.png) no-repeat scroll -10px -1487px transparent;height:4px;}
