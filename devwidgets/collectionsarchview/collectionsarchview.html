@@ -33,121 +33,6 @@
     --></div>
     
     <!-- Content for memory palace -->
-    
-    <!-- Album presentation -->
-    <div id="collections_albums" style="display:none" class="albumView"></div>
-    
-    <div id="collections_albums_template" style="display:none" class="albumView"><!--
-      {for album in collections}
-        <div id="album_{if album.id}${album.id}{else}0{/if}" class="albumCover">
-          <div class="albumCoverImage">
-            {if album.image}
-              <img src="${album.image}" alt="${album.title} __MSG__IMAGE__"/>
-            {/if}
-          </div>
-          <div class="albumCoverTitle"><span class="ellipsis_text">${album.title}</span></div>
-          <div class="albumCoverDescription"><span class="ellipsis_text">"${album.description}</span></div>
-        </div>
-      {/for}
-    --></div>
-  
-    <div id="collections_albums_show_album" style="display:none" class="albumView"></div>
-    <div id="collections_albums_show_album_template" style="display:none" class="albumView"><!--
-      <div class="albumHero">
-        <div class="albumHead">
-          <div class="albumTitleContainer">
-          <h1>Chapter:</h1>
-          <h1 class="isEditable albumTitle">${album.title}</h1></div>
-          <div class="configureAlbum configure" style="display:none"><button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_ALBUM__</span></button><a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_ALBUM__" title="__MSG__CONFIGURE_THIS_ALBUM__"/></a></div>
-        </div>
-        <div class="albumImage isEditable">
-            <img src="${album.image}"/>
-            <span class="clickToEditText"></span>
-        </div>
-        <div class="albumDesc isEditable" id="${album.id}_description">${album.description}</div>
-      </div>
-      <div class="albumCategories">
-        <div class="categoryHeader"><h2>Categories</h2><span style="display:none"><a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/add_icon.png" alt="__MSG__ADD_NEW_CATEGORY__" title="__MSG__ADD_NEW_CATEGORY__"/></a></span></div>
-        {for category in album.categories}
-        <div class="categoryPreview" id="category_${category.id}">
-          <div class="categoryCover">
-            <img src="${category.image}" alt="${category.name} __MSG__IMAGE__"/>
-          </div>
-          <div class="categoryPreviewName"><span class="ellipsis_text">${category.name}</span></div>
-          <span class="categoryPreviewItems">${category.items.length} __MSG__ITEMS__</span>
-        </div>
-        {/for}
-      </div>
-    --></div>
-  
-    <div id="collections_albums_show_category" style="display:none" class="albumView"></div>
-    <div id="collections_albums_show_category_template" style="display:none" class="albumView"><!--
-      <h1>Chapter: ${album.title}</h1>
-      <div class="itemsContainer">
-        <div class="itemsContainerHead">
-          <h2>Category:</h2>
-          <div class="categoryTitleContainer"><h2 class="isEditable categoryTitle categoryData">${category.name}</h2></div>
-          <div class="configureCategory configure" style="display:none">
-            <button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">__MSG__DELETE_CATEGORY__</span></button>
-            <a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="__MSG__CONFIGURE_THIS_CATEGORY__" title="__MSG__CONFIGURE_THIS_CATEGORY__"/></a>
-          </div>
-        </div>
-        <div class="scroll-pane">
-          <div class="scroll-content">
-            {for item in category.items}
-              <div class="scroll-content-item" id="item_${item.id}">
-                <div class="scrollItemContainer">
-                  {if (item.mimeType.split("/")[0] == "image")}
-                    <img src="${item.url}" alt="${item.title} image"/>
-                  {elseif sakai.config.MimeTypes[item.mimeType]}
-                    <img src="${sakai.config.MimeTypes[item.mimeType].URL}" alt="${sakai.config.MimeTypes[item.mimeType].description}" />
-                  {else}
-                    <img src="${sakai.config.MimeTypes["other"].URL}" alt="${sakai.config.MimeTypes["other"].description}" />
-                  {/if}
-                  <div class="itemPreviewTitle"><span class="ellipsis_text">${item.title}</span></div>
-                </div>
-              </div>
-            {/for}
-          </div>
-          <div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
-            <div class="scroll-bar"></div>
-          </div>
-        </div>
-      </div>
-    --></div>
-    
-    <div id="collections_albums_show_item" style="display:none" class="albumView"></div>  
-    <div id="collections_albums_show_item_template" style="display:none" class="albumView"><!--
-      <div class="itemHero">
-        <div class="itemHead">
-        <h1>Item:</h1>
-        <div class="itemTitleContainer"><h1 class="itemTitle isEditable itemData">${item.title}</h1></div>
-        <div class="configureItem configure" style="display:none">
-            <button class="s3d-button s3d-button-primary" style="display:none"><span class="s3d-button-inner">Delete Item</span></button>
-            <a href="javascript:;"><img src="/devwidgets/collectionsarchview/images/config_icon.png" alt="Configure this item" title="Configure this item"/></a>
-        </div>
-        </div>
-        <div class="itemImage isEditable itemData">
-          {if item.url}<a class="itemLink" href="{if item.mimeType === "x-sakai/link"}http://${item.url.split("http://")[1]}{else}${item.url}{/if}">{/if}
-          {if item && item.mimeType}
-              {if (item.mimeType.split("/")[0] === "image")}
-                <img src="${item.url}" alt="${item.title} __MSG__IMAGE__"/>
-              {elseif sakai.config.MimeTypes[item.mimeType]}
-                <img src="${sakai.config.MimeTypes[item.mimeType].URL}" alt="${sakai.config.MimeTypes[item.mimeType].description}" />
-              {else}
-                <img src="${sakai.config.MimeTypes["other"].URL}" alt="${sakai.config.MimeTypes["other"].description}" />
-              {/if}
-          {else}
-            <img src=""/>
-            <span class="clickToEditText"></span>
-          {/if}
-          {if item.url}</a>{/if}
-        </div>
-        <div class="itemDesc isEditable itemData">${item.description}</div>
-      </div>
-    
-    --></div>  
-    
     <!-- Map presentation -->
     <div id="collections_map" style="display:none" class="mapView"></div>
   
@@ -191,7 +76,7 @@
             <div class="form_item">
               <label for="arch_room_overview">Room Overview</label>
               <div id="placeholderforeditor" class="textarea">
-                  <textarea id="arch_room_overview" name="arch_room_overview" rows="15" cols="80" style="width: 100%">
+                  <textarea id="arch_room_overview" name="arch_room_overview" cols="200" rows="15" style="width:100%;">
                       {if room.description}${room.description}{/if}
                   </textarea>
               </div>
@@ -344,10 +229,6 @@
       --></div>
     
     </div>
-
-    <div id="collections_album" style="display:none" class="albumView"></div>
-  
-    <div id="collections_album_template" style="display:none" class="albumView"></div>  
 
     <!-- category table template -->
     <div id="collections_map_categories_listing_body_template" style="display:none" class="mapView"><!-- 
