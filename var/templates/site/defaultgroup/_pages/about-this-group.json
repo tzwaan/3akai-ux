@@ -3,6 +3,6 @@
 	"pageTitle": "About This Group",
 	"pageType": "profile",
 	"deletable": false,
-	"pagePosition": 200000,
+	"pagePosition": 100000,
 	"jcr:mixinTypes": "sakai:propertiesmix"
 }

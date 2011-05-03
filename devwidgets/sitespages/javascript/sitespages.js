@@ -916,85 +916,11 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
          * @return void
          */
 
-        function init_tinyMCE() {
-
-            // Creates a new plugin class and a custom listbox for the insert more menu
-            tinymce.create('tinymce.plugins.InsertMorePlugin', {
-                createControl: function(n, cm) {
-                    if ( n === 'insertmore' ) {
-                            var insertMoreBox = cm.createListBox('insertmore', {
-                             title : 'Insert More',
-                             onselect : function(v) {
-                                 if (v==="link") {
-                                     $('#link_dialog').jqmShow();
-                                 } else if (v==="hr") {
-                                     tinyMCE.get("elm1").execCommand('InsertHorizontalRule');
-                                 } else {
-                                     renderSelectedWidget(v);
-                                 }
-                                 $("#elm1_insertmore").get(0).selectedIndex = 0;
-                             }
-                        });
-
-                        insertMoreBox.add("Page Link", 'link');
-                        insertMoreBox.add("Horizontal Line", 'hr');
-
-                        // Vars for media and goodies
-                        var media = {}; media.items = [];
-                        var goodies = {}; goodies.items = [];
-                        var sidebar = {}; sidebar.items = [];
-
-                        // Fill in media and goodies
-                        for (var i in sakai.widgets){
-                            if (i) {
-                                var widget = sakai.widgets[i];
-                                if (widget[sakai_global.sitespages.config.pageEmbedProperty] && widget.showinmedia) {
-                                    media.items.push(widget);
-                                }
-                                if (widget[sakai_global.sitespages.config.pageEmbedProperty] && widget.showinsakaigoodies) {
-                                    goodies.items.push(widget);
-                                }
-                                if (widget[sakai_global.sitespages.config.pageEmbedProperty] && widget.showinsidebar){
-                                    sidebar.items.push(widget);
-                                }
-                            }
-                        }
-
-                        $(media.items).each(function(i,val) {
-                            insertMoreBox.add(val.name, val.id);
-                        });
-                        $(goodies.items).each(function(i,val) {
-                            insertMoreBox.add(val.name, val.id);
-                        });
-                        $(sidebar.items).each(function(i,val) {
-                            insertMoreBox.add(val.name, val.id);
-                        });
-
-                        // Event handler
-                        $('#insert_dialog').jqm({
-                            modal: true,
-                            overlay: 20,
-                            toTop: true,
-                            onHide: hideSelectedWidget
-                        });
-
-                        // Return the new listbox instance
-                        return insertMoreBox;
-                    }
-
-                    return null;
-                }
-            });
-
-            // Register plugin
-            tinymce.PluginManager.add('insertmore', tinymce.plugins.InsertMorePlugin);
-
+        var init_tinyMCE = function() {
             // Init tinyMCE
             tinyMCE.init({
-
                 // General options
-                mode : "exact",
-                elements : "elm1",
+                mode : "none",
                 theme: "advanced",
 
                 // For a built-in list of plugins with doc: http://wiki.moxiecode.com/index.php/TinyMCE:Plugins
@@ -1136,129 +1062,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                     "ul[align|clear|height|start|type|width]"+
                     "video[src|class|autoplay|controls|height|width|preload|loop]"
             });
-        }
 
-        /**
-         * Sets up the tinyMCE toolbar
-         * @return void
-         */
-         /*
-        var setupToolbar = function(){
-            try {
-
-                var $external_toolbar = $(".mceExternalToolbar");
-
-                // Adjust iFrame
-                $elm1_ifr.css({'overflow':'hidden', 'height':'auto'});
-                $elm1_ifr.attr({'scrolling':'no','frameborder':'0'});
-
-                if (!sakai_global.sitespages.toolbarSetupReady) {
-                    $(".mceToolbarEnd").before(sakai.api.Util.TemplateRenderer("editor_extra_buttons", {}));
-                    $(".insert_more_dropdown_activator").bind("click", function(ev){ toggleInsertMore(); });
-                }
-
-                $external_toolbar.parent().appendTo(".mceToolbarExternal");
-                $external_toolbar.show().css({"position":"static", 'border':'0px solid black'});
-                $(".mceExternalClose").hide();
-
-                $external_toolbar.show();
-
-                // Position toolbar
-                //placeToolbar();
-            }
-            catch (err) {
-                // Firefox throws strange error, doesn't affect anything
-                // Ignore
-            }
+            tinyMCE.execCommand('mceAddControl', true, 'elm1');
         };
-    */
-
-        /**
-         * Position tinyMCE toolbar
-         * @return void
-         */
-         /*
-        var placeToolbar = function(){
-            sakai_global.sitespages.curScroll = document.body.scrollTop;
-
-            if (sakai_global.sitespages.curScroll === 0) {
-                if (window.pageYOffset) {
-                    sakai_global.sitespages.curScroll = window.pageYOffset;
-                } else {
-                    sakai_global.sitespages.curScroll = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
-                }
-            }
-            var barTop = sakai_global.sitespages.curScroll;
-            $toolbarcontainer.css("width", ($("#toolbarplaceholder").width()) + "px");
-
-            // Variable that contains the css for the tinyMCE menus
-            var tinyMCEmenuCSS = {};
-            var textColorMenu, backColorMenu;
-            // Check if the current scroll position is smaller then the top position of the toolbar
-            if (barTop <= sakai_global.sitespages.minTop) {
-
-                // Set the position of the toolbar
-                $toolbarcontainer.css({"position":"absolute", "top": sakai_global.sitespages.minTop + "px"});
-
-                // Set the position of the Insert more menu
-                $insert_more_menu.css({"position": "absolute", "top":(sakai_global.sitespages.minTop + 28) + "px"});
-
-                // Set the positions of the native tinyMCE menus
-                tinyMCEmenuCSS = {"position":"absolute", "top":(sakai_global.sitespages.minTop + 30) + "px"};
-                $(elm1_menu_formatselect).css(tinyMCEmenuCSS);
-                $(elm1_menu_fontselect).css(tinyMCEmenuCSS);
-                $(elm1_menu_fontsizeselect).css(tinyMCEmenuCSS);
-
-                // Set the position for the text color menu
-                textColorMenu = $("#elm1_forecolor_menu");
-                if (textColorMenu.css("position") === "fixed"){
-                    textColorMenu.css("position", "absolute");
-                    textColorMenu.css("top", "334px");
-                };
-
-                // Set the position for the background-color menu
-                backColorMenu = $("#elm1_backcolor_menu");
-                if (backColorMenu.css("position") === "fixed"){
-                    backColorMenu.css("position", "absolute");
-                    backColorMenu.css("top", "334px");
-                };
-
-            }
-            else {
-
-                // Set the position: fixed when you scroll down a site page
-                tinyMCEmenuCSS = {"position":"fixed", "top":"30px"};
-                $(elm1_menu_formatselect).css(tinyMCEmenuCSS);
-                $(elm1_menu_fontselect).css(tinyMCEmenuCSS);
-                $(elm1_menu_fontsizeselect).css(tinyMCEmenuCSS);
-
-                $toolbarcontainer.css({"position":"fixed", "top":"0px"});
-                $insert_more_menu.css({"position": "fixed", "top":"28px"});
-
-                // Set the position for the text color menu
-                textColorMenu = $("#elm1_forecolor_menu");
-                if (textColorMenu.css("position") === "absolute"){
-                    textColorMenu.css("position", "fixed");
-                    textColorMenu.css("top", "30px");
-                };
-
-                // Set the position for the background-color menu
-                backColorMenu = $("#elm1_backcolor_menu");
-                if (backColorMenu.css("position") === "absolute"){
-                    backColorMenu.css("position", "fixed");
-                    backColorMenu.css("top", "30px");
-                };
-
-            }
-
-            var $insert_more_dropdown_main = $("#insert_more_dropdown_main");
-            if($insert_more_dropdown_main.length > 0){
-                $insert_more_menu.css("left",$insert_more_dropdown_main.position().left + $("#toolbarcontainer").position().left + 10 + "px");
-            }
-
-            sakai_global.sitespages.last = new Date().getTime();
-        };
-    */
 
         /**
          * tinyMCE selection event handler
@@ -1310,7 +1116,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
          * @return void
          */
         var editPage = function(pageUrlName){
-
+            init_tinyMCE();
             registerWidgetFunctions();
 
             // Init
@@ -1348,17 +1154,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
 
             // Generate the page location
             showPageLocation();
-
-            // Put content in editor
-            var content = "";
-            if (pageUrlName === "_navigation") {
-                content = sakai_global.sitespages.pagecontents[pageUrlName];
-            }
-            else {
-                content = sakai_global.sitespages.pagecontents[pageUrlName]["sakai:pagecontent"] || "";
-            }
-
-            tinyMCE.get("elm1").setContent(content, {format : 'raw'});
 
             $("#messageInformation").hide();
 
@@ -1398,6 +1193,18 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                     sakai_global.sitespages.timeoutid = setInterval(sakai_global.sitespages.doAutosave, sakai_global.sitespages.autosaveinterval);
                 }
             });
+            // Put content in editor
+            var content = "";
+            if (pageUrlName === "_navigation") {
+                content = sakai_global.sitespages.pagecontents[pageUrlName];
+            } else {
+                content = sakai_global.sitespages.pagecontents[pageUrlName]["sakai:pagecontent"] || "";
+            }
+            try {
+                tinyMCE.get("elm1").setContent(content, {format : 'raw'});
+            } catch (e) {
+                debug.info("tinymce not set yet, but this will be called again, so everything is cool");
+            }
         };
 
 
@@ -1664,19 +1471,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 var dashboardTUID = $("#" + sakai_global.sitespages.selectedpage).children("div").attr("id");
                 $(window).trigger("showAddWidgetDialog.dashboard.sakai", dashboardTUID);
             } else {
-                if (tinyMCE.activeEditor === null) {
-                    init_tinyMCE();
-                } else {
-                    if (tinyMCE.activeEditor.id !== "elm1" && didInit === false) {
-                      tinyMCE.remove(tinyMCE.activeEditor.id);
-                      init_tinyMCE();
-                      didInit = true;
-                    }
-                    editPage(sakai_global.sitespages.selectedpage);
-                }
+                editPage(sakai_global.sitespages.selectedpage);
             }
-
-            return false;
         });
 
         var didInsertDropdownInit = false;
@@ -1705,11 +1501,10 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         sakai_global.sitespages.startEditPage = function() {
 
             // Check wether we will edit navigation bar or normal page
-            if (sakai_global.sitespages.isEditingNavigation)
-                {
-                    editPage("_navigation");
-                } else {
-                    editPage(sakai_global.sitespages.selectedpage);
+            if (sakai_global.sitespages.isEditingNavigation) {
+                editPage("_navigation");
+            } else {
+                editPage(sakai_global.sitespages.selectedpage);
             }
             addEditPageBinding();
 
@@ -2406,14 +2201,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
 
                     sakai_global.sitespages.navigation.addNode(sakai_global.sitespages.selectedpage, pageTitle, newPosition);
 
-                    // Init tinyMCE if needed
-                    if (tinyMCE.activeEditor === null) { // Probably a more robust checking will be necessary
-                        init_tinyMCE();
-                        $("#sitespages_page_options #page_options").hide();
-                        $("#sitespages_page_options #page_save_options").show().html(sakai.api.Util.TemplateRenderer("#edit_page_action_buttons_template", {}));
-                    } else {
-                        editPage(pageUniques.urlName);
-                    }
+                    $("#sitespages_page_options #page_options").hide();
+                    $("#sitespages_page_options #page_save_options").show().html(sakai.api.Util.TemplateRenderer("#edit_page_action_buttons_template", {}));
+                    editPage(pageUniques.urlName);
 
                     // run callback
                     if ($.isFunction(callback)) {
@@ -2931,15 +2721,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
 
         // Bind edit sidebar click
         $("#edit_sidebar").bind("click", function(ev){
-            // Init tinyMCE if needed
-            if (tinyMCE.activeEditor === null) { // Probably a more robust checking will be necessary
-                sakai_global.sitespages.isEditingNavigation = true;
-                init_tinyMCE();
-              } else {
-                editPage("_navigation");
-            }
+            editPage("_navigation");
 
-            return false;
+            ev.preventDefault();
         });
 
         //--------------------------------------------------------------------------------------------------------------

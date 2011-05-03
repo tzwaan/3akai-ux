@@ -2,6 +2,6 @@
 	"pageTitle": "Group Dashboard",
 	"sling:resourceType": "sakai/page",
 	"pageType": "dashboard", 
-	"pagePosition": 100000,
+	"pagePosition": 200000,
 	"jcr:mixinTypes": "sakai:propertiesmix"
 }
