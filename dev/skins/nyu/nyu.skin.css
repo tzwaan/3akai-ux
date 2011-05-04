@@ -117,26 +117,20 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 	width: 975px !important;
 }
 .login-box .login-box-content {
-  background-color:none;
-  padding:0;
-  width:100%;
-}
-.login-box .login-box-top {
-  background: none;
-}
-.login-box .login-box-bottom{
-  background:none;
-}
-.login-box {
-	background: url("images/login-box_nyu_home_bg.png") no-repeat 0% 0%;
+	background: url("images/login-box_nyu_home_bg.png") no-repeat 0% 0% transparent;
 	clear: both;
 	padding: 30px 20px; 
 	height: 400px;  
 	margin: 0 0 20px 0;
+	}
+.login-box .login-box-top {
+  display:none;
+}
+.login-box .login-box-bottom{
+  display:none;
 }
 
-.header-byline {   
-	color: #222;
+.header-byline { 
 	padding:0; 
 	font-size: 1em;
 	font-weight:normal;  
@@ -148,7 +142,9 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 } 
 .header-byline p {
 	font-weight:normal;
-	font-size: 18px; 
+	font-size: 18px;
+	color: #222; 
+	line-height:1.2em; 
 }
 .header-smallline {
 	font-size: 21px; 
@@ -161,7 +157,7 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 	padding: 0px 0px 10px 0;
 }
 .homepage-header {
-	width:290px; 
+	width:280px; 
 	padding:10px;
   float:left;
   display:inline;
@@ -172,9 +168,6 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 }
 .homepage-header.last p {    
 	border-right:0px solid #ddd;
-} 
-.footer_main {
-	width: 975px !important; 
 } 
 #login-container {
   background: url("images/nyu_home_login-default.png") no-repeat 0% 0%;
