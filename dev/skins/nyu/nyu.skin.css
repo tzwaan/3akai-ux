@@ -183,6 +183,7 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
   width:250px;
   height:168px;
   padding:20px;
+  margin-right: 40px;
 }                      
 .requireAnon .login-container-button { 
 	margin-top:10px;
@@ -193,7 +194,7 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
   margin-top: 0px;
 }    
 .login-container-button {
-  float:none;
+  float:none !important;
 	margin-top:10px;
 	border:none;
 	width: 200px !important;
