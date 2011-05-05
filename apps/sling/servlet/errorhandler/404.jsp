@@ -25,8 +25,6 @@
         <!-- TOP BANNER -->
         <div id="top_banner"><!-- --></div>
 
-        <div id="widget_topnavigation" class="widget_inline"></div>
-
         <div class="index-container fl-centered page_not_found_error"><span style="display:none;"><br /></span>
             <div id="page_not_found_error_logged_out_template" style="display:none;"><!--
 
@@ -36,19 +34,9 @@
 
 
                 <div class="login-box fl-container">
-                    <div class="login-box-top">
-                    </div>
+
                     <div class="login-box-content">
                         <div class="preview-box fl-left">
-
-                            <div class="header-title">
-                                <p class="sakai_logo_index"></p>
-                            </div>
-
-                            <div class="header-byline">
-                                __MSG__HEADER_BYLINE__
-                            </div>
-
 
                             <div id="page_not_found_error">
                                 <div class="preview-box">
@@ -79,13 +67,12 @@
 
                         </div>
                     </div>
-                    <div class="login-box-bottom">
-                    </div>
                 </div>
                 <div id="widget_footer" class="widget_inline footercontainer"></div>
 
             --></div>
             <div id="page_not_found_error_logged_in_template" style="display:none;"><!--
+        <div id="widget_topnavigation" class="widget_inline"></div>      
                 <div class="fl-container-flex header s3d-header">
                     <div class="fl-fix fl-centered fixed-container s3d-fixed-container">
                         <div class="s3d-decor">
