@@ -211,6 +211,7 @@ define(function() {
                 "www.youtube.com": "YouTube",
                 "youtube.co.uk": "YouTube",
                 "www.youtube.co.uk": "YouTube",
+                "youtu.be":"YouTube",
                 "vimeo.com": "Vimeo",
                 "www.vimeo.com": "Vimeo",
                 "vimeo.co.uk": "Vimeo",

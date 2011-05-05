@@ -9,9 +9,9 @@ html, .requireUser {
 } 
 
 /* Links */
-a,
-a:link {  
-  color:#57068c !important; 
+a, a:link,
+button.s3d-link-button {
+	color:#57068c !important; 
 }       
 a:visited {  
   color:#3C1354 !important;
@@ -34,7 +34,6 @@ color: #fff !important;
     color:#888!important;
 }
 
-/* Buttons */
 /* Buttons */
 .s3d-button::-moz-focus-inner {
   border: none; /* overrides extra padding in Firefox */
@@ -86,10 +85,8 @@ a.directory_level_three_link:visited
 }
 
 /* Footer Links */
-.footer_main .fixed-container {
-background: none !important;
-}
-.footer_main .fixed-container a {
+
+.footer_main .fixed-container a, .footer_main .fixed-container button.s3d-link-button {
 color:#bebebe !important;
 } 
 .footer_main .fixed-container  a:visited {

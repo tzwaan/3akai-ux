@@ -16,8 +16,8 @@
     "showinsakaigoodies":true,
     "type":"sakai",
     "enabled":true,
-    "defaultLat":40.72895,
-    "defaultLng":-73.996568,
+    "defaultLat":40.72894999999998,
+    "defaultLng":-73.99656800000002,
     "defaultZoom":8,
     "url":"/devwidgets/googlemaps/googlemaps.html",
     "indexFields": ["mapinput", "maphtml"]
