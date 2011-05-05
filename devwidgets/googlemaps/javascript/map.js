@@ -17,12 +17,15 @@
  */
 
 // Init google map object with Cambridge location as the center position
-var map = new google.maps.Map(document.getElementById("googlemaps_map_canvas"), {
-    zoom: 8,
-    center: new google.maps.LatLng(52.2025441, 0.1312368),
-    mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
+var map = new google.maps.Map(
+    document.getElementById("googlemaps_map_canvas"), {
+    mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    navigationControlOptions: { style: google.maps.NavigationControlStyle.ZOOM_PAN }
+    navigationControlOptions: {
+        style: google.maps.NavigationControlStyle.ZOOM_PAN
+    }
 });
 
 // Init google marker object with Cambridge location as the center position
@@ -40,12 +43,12 @@ var infoWindow = new google.maps.InfoWindow({
 
 // Init a json object which inlcudes the basic properties of the google map
 var json = {
-    "lat": map.getCenter().lat(),
-    "lng": map.getCenter().lng(),
-    "mapzoom": map.getZoom(),
+    "lat": "",
+    "lng": "",
+    "mapzoom": "",
     "mapinput": "",
     "mapsize": "",
-    "maphtml": "Cambridge, UK"
+    "maphtml": ""
 };
 
 /**
@@ -140,6 +143,8 @@ function search(keyword, region) {
     }
 }
 
+var interval = null;
+
 /**
  * Set the map initial property (center an zoom)
  * @param {Object} jsonTarget the json object includes map's properties
@@ -148,13 +153,22 @@ function setMap(jsonTarget) {
     json = jsonTarget;
 
     var latLng = new google.maps.LatLng(json.lat, json.lng);
-    map.setCenter(latLng);
     map.setZoom(parseInt(json.mapzoom, 10));
+    map.setCenter(latLng);
     marker.setPosition(latLng);
-
+    interval = setInterval(resize, 100);
     // Init the infoWindow object and decide to open it or not
     if (json.maphtml) {
         updateInfoWindow(json.maphtml);
+    }
+}
+
+
+function resize() {
+    if (map.getBounds().ca.d === json.lng && map.getBounds().pa.d === json.lat) {
+        var latLng = new google.maps.LatLng(json.lat, json.lng);
+        map.setCenter(latLng);
+        clearInterval(interval);
     }
 }
 
