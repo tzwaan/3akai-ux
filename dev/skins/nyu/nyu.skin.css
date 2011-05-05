@@ -10,7 +10,8 @@ html, .requireUser {
 
 /* Links */
 a,
-a:link {  
+a:link,
+button.s3d-link-button {
 	color:#57068c !important; 
 }       
 a:visited {  
@@ -35,13 +36,12 @@ color: #fff !important;
 }
 
 /* Buttons */
-/* Buttons */
 .s3d-button::-moz-focus-inner {
   border: none; /* overrides extra padding in Firefox */
 }
-.s3d-button .s3d-button-inner {                                                                     
-  background: url("images/nyu_dashboard_sprite.png") no-repeat scroll -10px -1237px transparent; 
-} 
+.s3d-button:hover, .s3d-button:hover .s3d-button-inner {
+  background-image: url("images/nyu_dashboard_sprite.png");
+}
 
 /* Page Links */
 .people .find_more_people a {
@@ -82,10 +82,8 @@ a.directory_level_three_link:visited
 }
 
 /* Footer Links */
-.footer_main .fixed-container {
-background: none !important;
-}
-.footer_main .fixed-container a {
+
+.footer_main .fixed-container a, .footer_main .fixed-container button.s3d-link-button {
 color:#bebebe !important;
 } 
 .footer_main .fixed-container  a:visited {
