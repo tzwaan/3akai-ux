@@ -38,11 +38,9 @@ color: #fff !important;
 .s3d-button::-moz-focus-inner {
   border: none; /* overrides extra padding in Firefox */
 }
-.s3d-button .s3d-button-inner {         
-  /* broken by the main project revise later                                                           
-  background: url("images/nyu_dashboard_sprite.png") no-repeat scroll -10px -1237px transparent; 
-*/
-} 
+.s3d-button:hover, .s3d-button:hover .s3d-button-inner {
+  background-image: url("images/nyu_dashboard_sprite.png");
+}
 
 /* Page Links */
 .people .find_more_people a {  
