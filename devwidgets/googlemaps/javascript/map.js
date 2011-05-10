@@ -165,7 +165,7 @@ function setMap(jsonTarget) {
 
 
 function resize() {
-    if (map.getBounds().ca.d === json.lng && map.getBounds().pa.d === json.lat) {
+    if (map && map.getBounds && map.getBounds().getSouthWest().lng() === json.lng && map.getBounds().getNorthEast().lat() === json.lat) {
         var latLng = new google.maps.LatLng(json.lat, json.lng);
         map.setCenter(latLng);
         clearInterval(interval);
