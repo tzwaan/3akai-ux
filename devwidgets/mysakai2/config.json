@@ -5,9 +5,9 @@
     },
     "id":"mysakai2",
     "name":"My Sakai 2 favourites",
-    "personalportal":true,
+    "personalportal":false,
     "type":"sakai",
-    "enabled":true,
+    "enabled":false,
     "hasSettings":false,
     "url":"/devwidgets/mysakai2/mysakai2.html"
 }

@@ -1,5 +1,5 @@
 {
-    "personalportal":true,
+    "personalportal":false,
     "userpages": false,
     "userdashboard": false,
     "grouppages": false,
@@ -9,7 +9,7 @@
     "id": "tags",
     "name": "Most popular tags",
     "type": "sakai",
-    "enabled": true,
+    "enabled": false,
     "url":"/devwidgets/tags/tags.html",
     "i18n": {
         "default": "/devwidgets/tags/bundles/default.properties"

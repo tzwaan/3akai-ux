@@ -1,5 +1,5 @@
 {
-    "personalportal":true,
+    "personalportal":false,
     "userpages": false,
     "userdashboard": false,
     "grouppages": false,
@@ -9,7 +9,7 @@
     "id": "popularcontent",
     "name": "Most active content",
     "type": "sakai",
-    "enabled": true,
+    "enabled": false,
     "url":"/devwidgets/popularcontent/popularcontent.html",
     "i18n": {
         "default": "/devwidgets/popularcontent/bundles/default.properties"

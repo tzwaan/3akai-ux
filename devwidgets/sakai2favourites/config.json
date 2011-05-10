@@ -4,6 +4,6 @@
         "default": "/devwidgets/sakai2favourites/bundles/default.properties"
     },
     "type":"core",
-    "enabled":true,
+    "enabled":false,
     "url":"/devwidgets/sakai2favourites/sakai2favourites.html"
 }

@@ -1,5 +1,5 @@
 {
-    "personalportal":true,
+    "personalportal":false,
     "userpages": false,
     "userdashboard": false,
     "grouppages": false,
@@ -9,7 +9,7 @@
     "id": "activegroups",
     "name": "Most active groups",
     "type": "sakai",
-    "enabled": true,
+    "enabled": false,
     "url":"/devwidgets/activegroups/activegroups.html",
     "i18n": {
         "default": "/devwidgets/activegroups/bundles/default.properties"
