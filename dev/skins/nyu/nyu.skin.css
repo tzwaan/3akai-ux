@@ -42,13 +42,6 @@ color: #fff !important;
   background-image: url("images/nyu_dashboard_sprite.png");
 }
 
-/* Page Links */
-.people .find_more_people a {  
-    /* broken by the main project revise later   
-  background: url("images/nyu_dashboard_sprite.png") no-repeat scroll -490px -398px;    
-  */
-}
-
 .myprofile_widget .profile .myprofile_name {
   color:#57068c !important;
 }
