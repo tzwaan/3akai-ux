@@ -296,6 +296,7 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
          * @param {Object} finaljson The object where the rendered results shall come in. (results come in .items)
          */
         var preparePeopleForRender = function(results, finaljson) {
+            fetchMyFriends();
             for (var i = 0, j = results.length; i<j; i++) {
                 var item = results[i];
                 if (item) {

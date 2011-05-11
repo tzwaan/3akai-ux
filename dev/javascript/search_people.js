@@ -303,7 +303,7 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
          * @param {Object} results The json object containing all the result info.
          * @param {Boolean} success If the request was succesfull or not
          */
-        var renderResults = function(results, success) {
+        var renderResults = function(results, success, facet) {
             var finaljson = {};
             finaljson.items = [];
             if (success) {
@@ -347,7 +347,7 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
                 $(searchConfig.global.pagerClass).hide();
             }
             foundPeople = finaljson.items;
-
+            finaljson.facet = facet;
             //    Render the results.
             $(searchConfig.results.container).html(sakai.api.Util.TemplateRenderer(searchConfig.results.template, finaljson));
             $("#search_results_page1").show();
@@ -515,12 +515,12 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
                             }
                         }
 
-                        renderResults(data, true);
+                        renderResults(data, true, facet);
                         $(searchConfig.results.header).show();
                     },
                     error: function(xhr, textStatus, thrownError) {
                         sakai_global.data.search.results_people = {};
-                        renderResults(sakai_global.data.search.results_people, false);
+                        renderResults(sakai_global.data.search.results_people, false, facet);
                         $(searchConfig.results.header).show();
                     }
                 });
@@ -545,12 +545,12 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
                         json.results = data;
                         json.items = json.results.length;
 
-                        renderResults(json, true);
+                        renderResults(json, true, facet);
                         $(searchConfig.results.tagHeader).show();
                     },
                     error: function(xhr, textStatus, thrownError) {
                         var json = {};
-                        renderResults(json, false);
+                        renderResults(json, false, facet);
                         $(searchConfig.results.tagHeader).show();
                     }
                 });

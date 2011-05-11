@@ -126,12 +126,12 @@
                                         {/if}
 
                                         <div class="search_result_person_links">
-                                        {if ! i.isMe && ! sakai.data.me.user.anon}
-                                            {if ! i.connected}
+                                        {if !i.isMe && !sakai.data.me.user.anon}
+                                            {if !i.connected && facet !== "requested"}
                                                 <button type="button"class="search_result_person_link link_add_to_contacts s3d-link-button s3d-action" id="link_add_to_contacts_${i.userid}">__MSG__ADD_TO_CONTACTS__</button>
                                                 <span id="link_add_to_contacts_${i.userid}_divider" class="search_result_person_link search_result_person_divider">|</span>
                                                 <button type="button"class="search_result_person_link search_result_person_link_message search_result_person_link_divider_message s3d-link-button s3d-action" id="search_result_person_link_message_${i.userid}">__MSG__MESSAGE__</button>
-                                            {elseif i.invited}
+                                            {elseif i.invited && facet !== "requested"}
                                                 <button type="button"class="search_result_person_link link_accept_invitation s3d-link-button s3d-action" id="link_accept_invitation_${i.userid}">__MSG__ACCEPT_INVITATION__</button>
                                                 <span id="link_add_to_contacts_${i.userid}_divider" class="search_result_person_link search_result_person_divider">|</span>
                                                 <button type="button"class="search_result_person_link search_result_person_link_message search_result_person_link_divider_message s3d-link-button s3d-action" id="search_result_person_link_message_${i.userid}">__MSG__MESSAGE__</button>
