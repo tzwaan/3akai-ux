@@ -62,7 +62,7 @@
 #login_container input{border:1px solid #666;height:20px;line-height:20px;margin:3px 0 10px;text-align:right;width:240px;font-weight:bold;color:#333;padding:0 10px 0 0;}
 #error_message{color:#ff0;}
 #login_busy{background:url(/dev/images/ajax_load.gif) 0 0 no-repeat;width:80px;height:10px;}
-#register_button_container .register{border:none!important;}
+#login_button_container .log_in {border:none!important;}
 #register_here{margin-bottom:10px;}
 
 /* General Search */

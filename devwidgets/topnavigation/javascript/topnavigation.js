@@ -420,14 +420,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 $("#other_logins_button_container").show();
                 $(".log_in").addClass("help_none");
 
-                if (showLogin) {
-                    // if config.js is set to external, register link is hidden
-                    if (!sakai.config.Authentication.internal) {
-                        $("#register_button_container").hide();
-                    }
-                    else {
-                        $("#register_button_container").show();
-                    }
+                if (showLogin) {                    
                     $("#login_button_container").show();
                 }
                 // Set up public nav links
