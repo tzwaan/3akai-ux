@@ -1935,7 +1935,7 @@ define(function() {
             "defaults": {
                 "personalportal": {
                     "layout": "dev",
-                    "columns": [["mygroups", "mycontacts"], ["mycontent","recentmessages"]]
+                    "columns": [["mygroups", "mycontacts"], ["recentmessages"]]
                 },
                 "siteportal": {
                     "layout": "dev",
