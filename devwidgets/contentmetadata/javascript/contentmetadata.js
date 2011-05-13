@@ -212,6 +212,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/content_profile.js"]
          * @param {String|Boolean} mode Can be false or 'edit' depending on the mode you want to be in
          */
         var renderLocations = function(mode){
+            // temporarily disable this
+            return;
             if (mode === "edit") {
                 renderLocationsEdit();
             }
