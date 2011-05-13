@@ -430,8 +430,10 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                         $($selected_element.val().split(",")).each(function(i, tag){
                             tagsArray.push($.trim(tag.replace(/\\/g, "").replace(/\s+/g, " ")));
                         });
-                        for (var i = 0; i < sakai_global.profile.main.directory.elements.length; i++){
-                            tagsArray.push(sakai_global.profile.main.directory.elements[i].locationtitle.value);
+                        if (sakai_global.profile.main.directory) {
+                            for (var i = 0; i < sakai_global.profile.main.directory.elements.length; i++){
+                                tagsArray.push(sakai_global.profile.main.directory.elements[i].locationtitle.value);
+                            }
                         }
                         var profileURL = "/~" + sakai_global.profile.main.data["rep:userId"] + "/public/authprofile";
                         sakai.api.Util.tagEntity(profileURL, tagsArray, currentTags, function(success, newtags) {
