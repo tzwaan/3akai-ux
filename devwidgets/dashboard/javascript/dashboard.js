@@ -89,11 +89,12 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/fluid/3akai_Infusion.js"], 
                     settings = response;
                     var cleanContinue = true;
 
+                    sakai.api.Server.removeServerCreatedObjects(settings);
                     for (var c in settings.columns) {
                         if (settings.columns.hasOwnProperty(c) && c.indexOf("column") > -1) {
                             for (var pi in settings.columns[c]) {
                                 if (settings.columns[c].hasOwnProperty(pi)) {
-                                    if (pi !== "contains") {
+                                    if (pi !== "contains" && $.isPlainObject(settings.columns[c][pi])) {
                                         if (!settings.columns[c][pi].uid) {
                                             cleanContinue = false;
                                         }
