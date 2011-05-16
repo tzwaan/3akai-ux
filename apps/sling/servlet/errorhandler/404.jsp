@@ -30,13 +30,10 @@
 
                 <div class="index-container fl-centered">
 
-                <div id="widget_login" class="widget_inline"></div>
-
-
                 <div class="login-box fl-container">
 
                     <div class="login-box-content">
-                        <div class="preview-box fl-left">
+                        <div class="fl-left">
 
                             <div id="page_not_found_error">
                                 <div class="preview-box">
