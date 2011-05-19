@@ -443,19 +443,6 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
             // check the URL for a query arg
             mainSearch.checkQuery();
 
-            // Make sure that we are still logged in.
-            $.ajax({
-                url: sakai.config.URL.SITES_SERVICE,
-                cache: false,
-                success: function(data){
-                    data = data.results;
-                    var sites = {
-                        "sites" : data
-                    };
-                    // Get my sites
-                    mainSearch.getMySites();
-                }
-            });
             // Add the bindings
             mainSearch.addEventListeners();
 
