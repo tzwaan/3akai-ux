@@ -133,9 +133,12 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/content_profile.js"]
                         data: {
                             "sakai:pooled-content-file-name": sakai.api.Security.escapeHTML($("#contentmetadata_name_text").val())
                         },
-                        success: function(){
+                        success: function(){                            
                             sakai_global.content_profile.content_data.data["sakai:pooled-content-file-name"] = sakai.api.Security.escapeHTML($("#contentmetadata_name_text").val());
-                            $("#contentpreview_download_button").attr("href", sakai_global.content_profile.content_data.smallPath + "/" + encodeURIComponent(sakai_global.content_profile.content_data.data["sakai:pooled-content-file-name"]));
+                            // ATLASUI-234 only change href if not a content is not a link
+                            if (sakai_global.content_profile.content_data.data["_mimeType"] != "x-sakai/link") {
+                                $("#contentpreview_download_button").attr("href", sakai_global.content_profile.content_data.smallPath + "/" + encodeURIComponent(sakai_global.content_profile.content_data.data["sakai:pooled-content-file-name"]));
+                            }
                         }
                     });
                 }
