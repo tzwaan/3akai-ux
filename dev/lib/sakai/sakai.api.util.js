@@ -1229,7 +1229,7 @@ define(["jquery",
             // Run the template and feed it the given JSON object
             var render = "";
             try {
-                render = this.templateCache[templateName].process(templateData);
+                render = this.templateCache[templateName].process(templateData, {"throwExceptions": true});
             } catch (err) {
                 debug.error("TemplateRenderer:", err);
             }
