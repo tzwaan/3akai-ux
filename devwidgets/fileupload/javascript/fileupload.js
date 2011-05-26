@@ -578,8 +578,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
             };
             data[data.length] = properties;
             sakai.api.Server.batch(data, function(success, data) {
-                if (success) {
-                    batchSetDescriptionAndName(results);
+                if (success) {                    
+                    //ATLASUI-235 don't call again (to be called by uploadLink)
+                    //batchSetDescriptionAndName(results);                    
                 } else {
                     sakai.api.Util.notification.show("Not linked", "Link could not be added to the group");
                 }
@@ -633,18 +634,19 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
                     uploadedLink = true;
                     filesUploaded = false;
 
-                    batchSetDescriptionAndName(data);
-
-                    newVersionIsLink = false;
-
+                    //ATLASUI-235 set resource permissions before setting 
+                    //name and description etc
                     if (context === "group") {
                         setLinkAsGroupResource(data);
                     }
                     else {
                         // Set permissions on the files
-                        sakai.api.Content.setFilePermissions("public", linkArray, function(permissionsSet){
-                        });
+                        sakai.api.Content.setFilePermissions("public", linkArray, function(permissionsSet){});
                     }
+
+                    batchSetDescriptionAndName(data);
+
+                    newVersionIsLink = false;
 
                     $(".fileupload_link_submit").removeAttr("disabled");
                     $fileUploadAddLinkButton.removeAttr("disabled");
