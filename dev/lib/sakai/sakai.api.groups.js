@@ -647,6 +647,14 @@ define(["jquery", "/dev/configuration/config.js", "sakai/sakai.api.server"], fun
                         ":viewer": groupID
                     }
                 });
+
+                reqData.push({
+                    "url": "/p/" + contentID + ".members.json",
+                    "method": "POST",
+                    "parameters": {
+                        ":viewer": groupID + "-managers"
+                    }
+                });
             });
 
             if (reqData.length > 0) {
@@ -718,6 +726,14 @@ define(["jquery", "/dev/configuration/config.js", "sakai/sakai.api.server"], fun
                         "method": "POST",
                         "parameters": {
                             ":viewer@Delete": groupID
+                        }
+                    });
+
+                    reqData.push({
+                        "url": "/p/" + contentID + ".members.json",
+                        "method": "POST",
+                        "parameters": {
+                            ":viewer@Delete": groupID + "-managers"
                         }
                     });
                 }
