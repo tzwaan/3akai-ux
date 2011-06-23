@@ -41,14 +41,11 @@
                     {for opt in data.list}
                         <span class="lists_multi">
                         {if opt.Label}
-                            <input type="checkbox" value="${escape(opt.Label)}"{if opt.selected} checked="checked"{/if} name="${escape(opt.Label)}"/>
-                            <label for="${escape(opt.Label)}">${opt.Label}</label>
+                            <label for="${escape(opt.Label)}"><input type="checkbox" value="${escape(opt.Label)}"{if opt.selected} checked="checked"{/if} name="${escape(opt.Label)}"/>${opt.Label}</label>
                         {elseif opt.title}
-                            <input type="checkbox" value="${escape(opt.title)}"{if opt.selected} checked="checked"{/if} name="${escape(opt.title)}"{if opt.loc} title="${opt.loc}"{/if}/>
-                            <label for="${escape(opt.title)}">${opt.title}</label>
+                            <label for="${escape(opt.title)}"><input type="checkbox" value="${escape(opt.title)}"{if opt.selected} checked="checked"{/if} name="${escape(opt.title)}"{if opt.loc} title="${opt.loc}"{/if}/>${opt.title}</label>
                         {else}
-                            <input type="checkbox" value="${escape(opt)}"{if opt.selected} checked="checked"{/if} name="${escape(opt)}"/>
-                            <label for="${escape(opt)}">${opt}</label>
+                            <label for="${escape(opt)}"><input type="checkbox" value="${escape(opt)}"{if opt.selected} checked="checked"{/if} name="${escape(opt)}"/>${opt}</label>
                         {/if}
                         </span>
                     {/for}

@@ -22,6 +22,10 @@
 #lists_settings label {float:left;width:100%;}
 #lists_settings select {float:left; width:100%; margin-bottom:10px;}
 
+
+#lists_settings .lists_multi label {float:none;display:block;padding-left:15px;text-indent:-15px;}
+#lists_settings .lists_multi input{padding:0;margin:0 3px 0 0;vertical-align:bottom;position:relative;top:-1px;*overflow:hidden;}
+
 .lists_widget.on_page {border:3px solid #D6DBDF;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;width:300px;}
 .inline_class_widget_leftfloat .lists_widget.on_page {margin-right:6px;}
 .lists_widget.on_page #lists_title {background:url("/dev/_images/block_tl.png") no-repeat scroll -10px -10px transparent;height:46px;}
