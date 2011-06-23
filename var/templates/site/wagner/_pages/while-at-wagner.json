@@ -2,6 +2,6 @@
 	"pageTitle": "While at Wagner",
 	"sling:resourceType": "sakai/page",
 	"pageType": "dashboard", 
-	"pagePosition": 200000,
+	"pagePosition": 300000,
 	"jcr:mixinTypes": "sakai:propertiesmix"
 }
