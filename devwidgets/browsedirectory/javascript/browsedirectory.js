@@ -135,7 +135,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 },
                 "themes": {
                     "dots": false,
-                    "icons": false
+                    "icons": false,
+                    "url": "/dev/lib/jquery/plugins/jsTree/themes/default/style.css"
                 },
                 "ui": {
                     "select_limit": 1,
