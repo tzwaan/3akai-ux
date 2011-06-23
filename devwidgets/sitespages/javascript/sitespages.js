@@ -419,8 +419,13 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                     $(".sakai_site .content_top").removeClass("content_top_rounded");
                     $sitespages_page_options.show();
                     $more_revision_history.hide();
-                    $content_page_options.show();
-                    $li_edit_page_divider.show();
+                    if (config.editMode && sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editable !== "false") {
+                        $content_page_options.show();
+                        $li_edit_page_divider.show();
+                    } else {
+                        $content_page_options.hide();
+                        $li_edit_page_divider.hide();
+                    }
                     $more_save_as_template.hide();
                     $more_change_layout.show();
                 } else if (pageType === "profile") {
@@ -538,11 +543,11 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             }
             // make sure the dashboard that said it's ready is the one we just got the data for
             if (split[2] === tuid) {
-                if (config.editMode) {
-                    $(window).trigger("init.dashboard.sakai", [sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage]["jcr:path"] + "/_widgets/", true, config.dashboardEmbedProperty, false, tuid]);
-                } else {
-                    $(window).trigger("init.dashboard.sakai", [sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage]["jcr:path"] + "/_widgets/", false, config.dashboardEmbedProperty, false, tuid]);
+                var editable = config.editMode && sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editable !== "false";
+                if (editable === false && sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editable === "false") {
+                    editable = "widgets_only";
                 }
+                $(window).trigger("init.dashboard.sakai", [sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage]["jcr:path"] + "/_widgets/", editable, config.dashboardEmbedProperty, false, tuid]);
             }
         });
 

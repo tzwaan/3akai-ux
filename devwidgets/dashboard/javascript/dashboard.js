@@ -380,7 +380,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/fluid/3akai_Infusion.js"], 
                               $("#settings_settings", $rootel).hide();
                           }
                           if (sakai.widgets[widgetId] &&
-                              (sakai.widgets[widgetId].deletable === true || sakai.widgets[widgetId].deletable === undefined)) {
+                              (sakai.widgets[widgetId].deletable === true || sakai.widgets[widgetId].deletable === undefined) &&
+                              isEditable !== "widgets_only") {
                               $("#settings_remove", $rootel).show();
                           } else {
                               $("#settings_remove", $rootel).hide();

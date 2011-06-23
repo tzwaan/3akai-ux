@@ -3,6 +3,7 @@
 	"pageTitle": "About This Portfolio",
 	"pageType": "profile",
 	"deletable": false,
+	"editable": false,
 	"pagePosition": 100000,
 	"jcr:mixinTypes": "sakai:propertiesmix"
 }
