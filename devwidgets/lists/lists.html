@@ -24,18 +24,18 @@
         <div id="${escape(data.Label)}" class="list_parent_${escape(parentLabel)} list_container">
             <label for="list_select_${escape(data.Label)}" {if hasLists && !editParents} class="list_nonEditable"{/if}>${data.Label}</label>
             {if !data.multiple}
-            <select name="list_select_${escape(data.Label)}" class="list_select{if !hasLists} list_final{/if}{if hasLists && !editParents} list_nonEditable{/if}" id="list_select_${escape(data.Label)}"{if data.multiple} multiple="true"{/if}>
-                <option></option>
-                {for opt in data.list}
-                    {if opt.Label}
-                        <option value="${escape(opt.Label)}"{if opt.selected} selected="selected"{/if}>${opt.Label}</option>
-                    {elseif opt.title}
-                        <option value="${escape(opt.title)}"{if opt.selected} selected="selected"{/if}{if opt.loc} title="${opt.loc}"{/if}>${opt.title}</option>
-                    {else}
-                        <option value="${escape(opt)}"{if opt.selected} selected="selected"{/if}{if opt.loc} title="${opt.loc}"{/if}>${opt}</option>
-                    {/if}
-                {/for}
-            </select>
+                <select name="list_select_${escape(data.Label)}" class="list_select{if !hasLists} list_final{/if}{if hasLists && !editParents} list_nonEditable{/if}" id="list_select_${escape(data.Label)}"{if data.multiple} multiple="true"{/if}>
+                    <option></option>
+                    {for opt in data.list}
+                        {if opt.Label}
+                            <option value="${escape(opt.Label)}"{if opt.selected} selected="selected"{/if}>${opt.Label}</option>
+                        {elseif opt.title}
+                            <option value="${escape(opt.title)}"{if opt.selected} selected="selected"{/if}{if opt.loc} title="${opt.loc}"{/if}>${opt.title}</option>
+                        {else}
+                            <option value="${escape(opt)}"{if opt.selected} selected="selected"{/if}{if opt.loc} title="${opt.loc}"{/if}>${opt}</option>
+                        {/if}
+                    {/for}
+                </select>
             {else}
                 <div{if !hasLists} class="list_final"{/if}>
                     {for opt in data.list}
