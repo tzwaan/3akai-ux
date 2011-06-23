@@ -12,8 +12,12 @@
         <div id="text_settings" style="display:none">
         </div>
         <div id="text_settings_template" style="display:none"><!--
+            {if data.titleEditable === "false"}
+            <input type="hidden" id="text_title" name="text_title"{if data.title}value="${data.title}"{/if}/>
+            {else}
             <label for="text_title">__MSG__TITLE__</label>
             <input type="text" id="text_title" name="text_title"{if data.title}value="${data.title}"{/if}/>
+            {/if}
             <label for="text_text">__MSG__TEXT__</label>
             <textarea id="text_text" name="text_text">{if data.text}${data.text}{/if}</textarea>
             <div id="text_actions">
