@@ -183,6 +183,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/lib/misc/querystring.js"], func
             var red = qs.get("url", false);
             if (red !== false){
                 redirectUrl = decodeURIComponent(red);
+            } else if (window.location.pathname !== "/") {
+                redirectUrl = window.location.pathname;
             }
 
             // Check whether we are already logged in
