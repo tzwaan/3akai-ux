@@ -353,7 +353,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             }
         };
         $deletePageLink.click(deletePage);
-
+        // Comes from sitespages
+        $("#more_delete").live("click", deletePage);
 
         //////////////////////////
         // MANAGING SETTINGS    //

@@ -2675,11 +2675,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             toTop: true
         });
 
-        // Bind delete page click event
-        $("#more_delete").live("click", function(){
-            $('#delete_dialog').jqmShow();
-        });
-
         // Bind delete page confirmation click event
         $("#delete_confirm").bind("click", function(){
             deletePage();
