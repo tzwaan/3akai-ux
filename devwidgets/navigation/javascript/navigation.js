@@ -229,19 +229,15 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             var p_id = "";
             var p_pagePosition;
             if (page_info["pageTitle"]) {
-                p_title = sakai.api.Security.saneHTML(page_info["pageTitle"]);
+                p_title = shortenPageTitle(page_info["pageTitle"]);
                 p_id = "nav_" + page_info["pageURLName"];
                 p_pagePosition = parseInt(page_info.pagePosition, 10);
-                p_title_short = p_title;
-                if (p_title_short.length > 25){
-                    p_title_short = p_title_short.substr(0, 24) + $navigation_threedots.text();
-                }
             }
 
             var node = {
                 attr: { id: p_id },
                 data: {
-                    title: p_title_short,
+                    title: p_title,
                     attr: {"href": "#page="+page_info["pageURLName"], "title": p_title},
                     pagePosition: p_pagePosition
                 },
@@ -909,7 +905,16 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             }
         };
 
+        var shortenPageTitle = function(title) {
+            title = sakai.api.Security.saneHTML(title);
+            if (title.length > 25){
+                title = title.substr(0, 24) + $navigation_threedots.text();
+            }
+            return title;
+        };
+
         sakai_global.sitespages.navigation.addNode = function(nodeID, nodeTitle, nodePosition) {
+            nodeTitle = shortenPageTitle(nodeTitle);
             if (nodeID && nodeTitle && nodePosition) {
                 var newNode = {
                     "children": [],
@@ -952,6 +957,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
 
         sakai_global.sitespages.navigation.renameNode = function(nodeID, newLabel) {
             if (nodeID && newLabel) {
+                newLabel = shortenPageTitle(newLabel);
                 var $nodeToRename = $navigationTree.find("#nav_" + nodeID);
                 $navigationTree.jstree("rename_node", $nodeToRename, newLabel);
             }
