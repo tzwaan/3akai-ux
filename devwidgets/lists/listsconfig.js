@@ -56,6 +56,27 @@ sakai_global.Lists = {
             ]
         },
         {
+            "Label": "Expected Graduation Date",
+            "multiple": false,
+            "list": [
+                "January 2011",
+                "May 2011",
+                "September 2011",
+                "January 2012",
+                "May 2012",
+                "September 2012",
+                "January 2013",
+                "May 2013",
+                "September 2013",
+                "January 2014",
+                "May 2014",
+                "September 2014",
+                "January 2015",
+                "May 2015",
+                "September 2015"
+            ]
+        },
+        {
             "Label": "Graduation Date",
             "multiple": false,
             "list": [
