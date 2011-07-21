@@ -4,4 +4,4 @@
 #text_settings input,#text_settings textarea{margin-bottom:8px;background-color:#F4F4F4;border:1.5px solid #DEDEDE;padding:5px 0;width:100%;}
 #text_settings textarea{height:150px;}
 #text_actions{height:35px;}
-#text_settings button{margin-top:10px;float:right;}
+#text_settings button{margin-top:10px;float:left;}
