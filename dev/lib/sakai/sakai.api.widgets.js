@@ -250,11 +250,12 @@ define(["jquery",
 
                             if (widgets[widgetname][i].done === widgets[widgetname][i].todo){
                                 // Save the placement in the widgets variable
-                                sakaiWidgetsAPI.widgetLoader.widgets[widgets[widgetname][i].uid] = {
-                                    "placement": widgets[widgetname][i].placement + widgets[widgetname][i].uid + "/" + widgetname,
-                                    "name" : widgetname
-                                };
-
+                                if (!sakaiWidgetsAPI.widgetLoader.widgets[widgets[widgetname][i].uid] || $.isEmptyObject(sakaiWidgetsAPI.widgetLoader.widgets[widgets[widgetname][i].uid])) {
+                                    sakaiWidgetsAPI.widgetLoader.widgets[widgets[widgetname][i].uid] = {
+                                        "placement": widgets[widgetname][i].placement + widgets[widgetname][i].uid + "/" + widgetname,
+                                        "name" : widgetname
+                                    };
+                                }
                                 // Run the widget's main JS function
                                 var initfunction = window[widgetNameSpace][widgetname];
                                 initfunction(widgets[widgetname][i].uid, settings);
