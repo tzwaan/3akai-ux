@@ -4,6 +4,7 @@
 	"pageType": "dashboard",
 	"deletable": false,
 	"editable": false,
+	"editWidgets": false,
 	"pagePosition": 400000,
 	"jcr:mixinTypes": "sakai:propertiesmix"
 }

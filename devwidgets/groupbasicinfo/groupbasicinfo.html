@@ -24,7 +24,7 @@
             </div>
             <div class="groupbasicinfo_generalinfo_subcontainer">
                 <label class="groupbasicinfo_generalinfo_label" for="groupbasicinfo_generalinfo">__MSG__GROUP_KIND__:</label>
-                <select class="groupbasicinfo_generalinfo_content" id="groupbasicinfo_generalinfo_group_kind">
+                <select class="groupbasicinfo_generalinfo_content" id="groupbasicinfo_generalinfo_group_kind" {if data["sakai:editKind"] === "false"}disabled="disabled"{/if}>
                     <option{if data['sakai:group-kind']==="personal"} selected="selected"{/if} value="personal">__MSG__GROUP_PERSONAL__</option>
                     <option{if data['sakai:group-kind']==="course"} selected="selected"{/if} value="course">__MSG__GROUP_COURSE__</option>
                     <option{if data['sakai:group-kind']==="student"} selected="selected"{/if} value="student">__MSG__GROUP_STUDENT__</option>

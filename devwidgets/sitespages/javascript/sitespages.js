@@ -544,7 +544,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             // make sure the dashboard that said it's ready is the one we just got the data for
             if (split[2] === tuid) {
                 var editable = config.editMode && sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editable !== "false";
-                if (editable === false && sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editable === "false") {
+                if (editable === false && (sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editWidgets === "true" ||
+                    !sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage].editWidgets)) {
                     editable = "widgets_only";
                 }
                 $(window).trigger("init.dashboard.sakai", [sakai_global.sitespages.site_info._pages[sakai_global.sitespages.selectedpage]["jcr:path"] + "/_widgets/", editable, config.dashboardEmbedProperty, false, tuid]);
