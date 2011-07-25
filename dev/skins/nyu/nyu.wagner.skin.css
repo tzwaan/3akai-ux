@@ -51,3 +51,77 @@ background: white url("images/header_l_nyu_wagner.png") no-repeat 0% 0% !importa
 .search-container .content_search .fixed-container .decor {
 background: url("images/header_r_nyu_wagner.png") no-repeat 100% 0% !important;
 }
+
+/* Student name */
+.entity_header a {
+    color:#f68a33 !important;
+}
+
+/* Links */
+a, a:link,
+button.s3d-link-button {
+	color:#4fb3cf !important; 
+}       
+a:visited {  
+  color:#4fb3cf !important;
+}
+
+/* Hover/active link styles. Don't forget :focus for accessibility */
+a:hover,
+a:focus,
+a:active { 
+  color:#73bbe7 !important;
+}
+
+.explore_nav .explore li a, 
+.explore_nav .top_navigation li a,
+.explore_nav .personal li a {
+color: #fff !important;
+}
+
+.explore_nav .explore li a.navigation_grey_link {
+    color:#888 !important;
+}
+
+/* Buttons */
+.s3d-button::-moz-focus-inner {
+  border: none; /* overrides extra padding in Firefox */
+}
+.s3d-button:hover, .s3d-button:hover .s3d-button-inner {
+  background-image: url("images/nyu_dashboard_sprite.png");
+}
+
+.myprofile_widget .profile .myprofile_name {
+  color:#4fb3cf !important;
+}
+a.s3d-action, .s3d-actions a:visited, 
+.myprofile_widget .profile a.myprofile_name:visited,
+.content_search a:visited,
+a.directory_level_three_link:visited  
+{
+  color:#4fb3cf !important;
+} 
+#user_link_menu li a {
+  border: none;
+  color:#fff !important;
+}
+#navigation_tree ul.jstree-no-dots li.jstree-leaf a, 
+#navigation_tree ul.jstree-no-dots li.jstree-open a, 
+#navigation_tree ul.jstree-no-dots li.jstree-closed a {
+color: #4fb3cf !important;
+
+}
+#navigation_tree ul.jstree-no-dots li.jstree-leaf a.jstree-clicked, 
+#navigation_tree ul.jstree-no-dots li.jstree-open a.jstree-clicked, 
+#navigation_tree ul.jstree-no-dots li.jstree-closed a.jstree-clicked  {
+  color:#fff !important;
+  background-color: #f68a33 !important;
+  border: none;
+}
+#navigation_tree ul.jstree-no-dots li.jstree-leaf a.jstree-hovered, 
+#navigation_tree ul.jstree-no-dots li.jstree-open a.jstree-hovered, 
+#navigation_tree ul.jstree-no-dots li.jstree-closed a.jstree-hovered {
+  color: #fff !important;
+  background-color: #7e8083 !important;
+  border: none;
+}
