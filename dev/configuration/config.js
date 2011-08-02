@@ -769,9 +769,6 @@ define(function() {
             "external": [{
                 label: "External Login System 1",
                 url: "http://external.login1.com/"
-            }, {
-                label: "External Login System 2",
-                url: "http://external.login2.com/"
             }],
             "hideLoginOn": ["/dev", "/dev/index.html", "/dev/create_new_account.html"]
         },
