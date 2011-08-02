@@ -36,9 +36,12 @@
     </div>
     <div id="login-external-template" style="display:none"><!--
         {for i in external}
+          <div class="login-external-system">                                                           
             <a id="login-external-button" href="${i.url}" class="s3d-button s3d-button-light-gray-square">
                 <span class="s3d-button-inner login-external-label">${i.label}</span>
             </a>
+            {if i.description}<div class="login-external-description">${i.description}</div> {/if}                                              
+          </div>                                                          
         {/for}
     --></div>
 </div>

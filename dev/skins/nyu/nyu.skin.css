@@ -170,13 +170,29 @@ background: #57068C url("images/body_nyu_home_bg.png") left top repeat-x !import
 .homepage-header.last p {    
   border-right:0px solid #ddd;
 } 
-#login-container {
+#login-container, #login-external-container {
   background: url("images/nyu_home_login-default.png") no-repeat 0% 0%;
   width:250px;
   height:168px;
   padding:20px;
   margin-right: 40px;
-}                      
+}
+
+#login-external-container {
+    text-align: center;
+}
+
+#login-external-container #login-external-button {
+    margin-bottom: 1em;
+}
+
+
+#login-external-container .login-external-description {
+    color: black;
+    text-align: left;
+}
+
+
 .requireAnon .login-container-button { 
   margin-top:10px;
   border:none;
